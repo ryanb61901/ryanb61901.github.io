@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const cvHref = `${base}assets/Ryan_Heejoon_Byun_CV.pdf`;
+
+const interests = [
+  'Valid black-box-assisted inference',
+  'Conformal and distribution-free inference',
+  'Prediction-powered inference',
+  'Calibrated Bayesian and simulation-based inference',
+  'Uncertainty quantification for scientific simulators and neural surrogates',
+  'Inference under misspecification and distribution shift'
+];
+
+const coursework = [
+  'Graduate Probability Theory I-II',
+  'Graduate Statistical Theory I-II',
+  'Functional Analysis',
+  'Differentiable Manifolds',
+  'Mathematical Foundations of Deep Neural Networks',
+  'Reinforcement Learning',
+  'Information Theory'
+];
+---
+<BaseLayout>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Ryan Heejoon Byun home">RHB</a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#work">Work</a>
+        <a href="#teaching">Teaching</a>
+        <a href={cvHref}>CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">M.S. student in Statistics, Seoul National University</p>
+        <h1>Ryan Heejoon Byun</h1>
+        <p class="lede">
+          I work on statistical methodology for valid black-box-assisted inference: methods that use
+          pretrained models, scientific simulators, neural surrogates, or synthetic data to improve inference
+          while preserving calibrated uncertainty under misspecification and distribution shift.
+        </p>
+        <p class="hero-note">
+          I am advised by Professor Won Chang in the Department of Statistics at Seoul National University.
+          Before statistics, I received a B.S. in Electrical and Computer Engineering from SNU.
+        </p>
+        <div class="button-row" aria-label="Contact and document links">
+          <a class="button primary" href="mailto:ryanb01@snu.ac.kr">Email</a>
+          <a class="button" href={cvHref}>CV</a>
+          <a class="button" href="https://github.com/ryanb61901">GitHub</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Research summary">
+        <p class="card-label">Research agenda</p>
+        <h2>Valid inference with imperfect external models</h2>
+        <p>
+          I am especially interested in inference procedures that remain useful when external models are
+          powerful but imperfect: shifted, misspecified, simulated, or black-box.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section-wrap grid-section" id="research">
+      <div>
+        <p class="section-label">Research</p>
+        <h2>Interests</h2>
+      </div>
+      <div class="content-card">
+        <p>
+          My long-term goal is to develop statistically valid and computationally practical methods for settings
+          where limited target-domain data are supplemented by imperfect external information sources. This includes
+          black-box predictors, scientific simulators, neural posterior approximations, and synthetic data generators.
+        </p>
+        <ul class="pill-list">
+          {interests.map((interest) => <li>{interest}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-wrap grid-section" id="work">
+      <div>
+        <p class="section-label">Research output</p>
+        <h2>Manuscripts and publications</h2>
+      </div>
+      <div class="stack">
+        <article class="paper-card highlight">
+          <p class="paper-status">Manuscript in preparation; preprint expected Fall 2026</p>
+          <h3>Miscoverage Risk Controlled Computer Model Calibration</h3>
+          <p><strong>Heejoon Byun</strong>, Dayeon Yoon, Won Chang.</p>
+          <p>
+            Develops a conformal risk control framework for calibrated posterior predictive uncertainty in
+            amortized computer model calibration under data-model discrepancy.
+          </p>
+        </article>
+
+        <article class="paper-card">
+          <p class="paper-status">ICCV 2023</p>
+          <h3>BlindHarmony: Blind Harmonization for MR Images via Flow Model</h3>
+          <p>Hwihun Jeong, <strong>Heejoon Byun</strong>, Dong Un Kang, Jongho Lee.</p>
+          <p>
+            Proceedings of the IEEE/CVF International Conference on Computer Vision.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-wrap grid-section" id="teaching">
+      <div>
+        <p class="section-label">Teaching</p>
+        <h2>Teaching experience</h2>
+      </div>
+      <div class="content-card timeline">
+        <div class="timeline-item">
+          <span>Fall 2025</span>
+          <div>
+            <h3>Teaching Assistant, Statistical Experiments with R</h3>
+            <p>Lectured recitation sessions; designed homework and exam problems; graded assignments and exams; assigned final grades.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span>Spring 2025</span>
+          <div>
+            <h3>Teaching Assistant, Introduction to Data Science</h3>
+            <p>Designed homework problems and graded assignments.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap grid-section" id="education">
+      <div>
+        <p class="section-label">Background</p>
+        <h2>Education and preparation</h2>
+      </div>
+      <div class="content-card two-column-card">
+        <div>
+          <h3>Education</h3>
+          <ul class="clean-list">
+            <li><strong>M.S. Statistics</strong>, Seoul National University, expected February 2027. Advisor: Won Chang.</li>
+            <li><strong>B.S. Electrical and Computer Engineering</strong>, Seoul National University, 2024. Summa Cum Laude.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Selected coursework</h3>
+          <ul class="clean-list compact">
+            {coursework.map((course) => <li>{course}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-wrap">
+    <p>Last updated: June 2026.</p>
+    <p><a href="mailto:ryanb01@snu.ac.kr">ryanb01@snu.ac.kr</a> · <a href={cvHref}>CV</a></p>
+  </footer>
+</BaseLayout>
